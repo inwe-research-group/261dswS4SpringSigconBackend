@@ -14,13 +14,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="tipo_documento")
-public class TipoDocumento {
+@Table(name="ubigeo")
+public class Ubigeo {
+
     @Id
-    @Column(name="id_tipo_documento")
-    private Integer idTipoDocumento;
+    @Column(name="idubigeo")
+    private String idUbigeo;
 
-    @Column(nullable = false, unique = true)
-    private String descripcion;
+    @Column(nullable = false)
+    private String departamento;
 
+    private String provincia;
+
+    private String distrito;
 }

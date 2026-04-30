@@ -1,0 +1,11 @@
+package dsw.sigconbackend.repository;
+
+import dsw.sigconbackend.model.Persona;
+import org.springframework.data.domain.Example;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PersonaRepository extends JpaRepository<Persona,Long> {
+    boolean existsByNumDocumento(String numDocumento);
+}

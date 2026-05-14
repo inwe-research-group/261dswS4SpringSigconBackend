@@ -31,7 +31,7 @@ public class PersonaRequestDTO {
     private String telefono;
     private String idSexo;
     private Integer idTipoDocumento;
-    private String idubigeo;
+    private String idUbigeo;
 
     public static Persona toEntity(PersonaRequestDTO personaRequestDTO){
         Persona persona=new Persona();
@@ -51,8 +51,8 @@ public class PersonaRequestDTO {
             persona.setSexo(Sexo.builder().idSexo(personaRequestDTO.getIdSexo()).build());
         if(personaRequestDTO.getIdTipoDocumento()!=null)
             persona.setTipoDocumento(TipoDocumento.builder().idTipoDocumento(personaRequestDTO.getIdTipoDocumento()).build());
-        if(personaRequestDTO.getIdubigeo()!=null)
-            persona.setUbigeo(Ubigeo.builder().idUbigeo(personaRequestDTO.getIdubigeo()).build());
+        if(personaRequestDTO.getIdUbigeo()!=null)
+            persona.setUbigeo(Ubigeo.builder().idUbigeo(personaRequestDTO.getIdUbigeo()).build());
 
         return persona;
     }

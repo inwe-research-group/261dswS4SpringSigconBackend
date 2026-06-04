@@ -49,14 +49,14 @@ public class Persona {
     private LocalDateTime updatedAt=LocalDateTime.now();
 
     @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="id_sexo", referencedColumnName ="id_sexo", nullable = false )
+    @JoinColumn(name="id_sexo", referencedColumnName ="id_sexo")//, nullable = false
     private Sexo sexo;
 
     @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="id_tipo_documento", referencedColumnName ="id_tipo_documento", nullable = false )
+    @JoinColumn(name="id_tipo_documento", referencedColumnName ="id_tipo_documento")//, nullable = false
     private TipoDocumento tipoDocumento;
 
     @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="idubigeo", referencedColumnName ="idubigeo", nullable = false )
+    @JoinColumn(name="idubigeo", referencedColumnName ="idubigeo" )//, nullable = false
     private Ubigeo ubigeo;
 }

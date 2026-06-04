@@ -11,4 +11,5 @@ import java.util.List;
 public interface PersonaRepository extends JpaRepository<Persona,Long> {
     boolean existsByNumDocumento(String numDocumento);
     List<Persona> findByNumDocumento(String numDocumento);
+    List<Persona> findAllByOrderByIdPersonaDesc();
 }

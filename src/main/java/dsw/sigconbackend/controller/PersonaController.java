@@ -90,7 +90,7 @@ public class PersonaController {
         return ResponseEntity.ok(personaResponse);
     }
 
-    @GetMapping("/find")
+    @PostMapping("/find")
     public ResponseEntity<?> findPersonaById(@RequestBody PersonaRequestDTO personaRequest){
         PersonaResponseDTO personaResponse;
         try{
@@ -105,7 +105,7 @@ public class PersonaController {
         return ResponseEntity.ok(personaResponse);
     }
 
-    @GetMapping("/findNumdocumento")
+    @PostMapping("/findNumdocumento")
     public ResponseEntity<?> findByNumdocumento(@RequestBody PersonaRequestDTO personaRequest){
         PersonaResponseDTO personaResponse;
         try{

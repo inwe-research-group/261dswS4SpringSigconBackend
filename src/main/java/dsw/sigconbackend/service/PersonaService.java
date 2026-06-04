@@ -50,11 +50,13 @@ public class PersonaService {
     }
 
     public PersonaResponseDTO findPersona(Long id){
-        return PersonaResponseDTO.fromEntity(personaRepository.findById(id).get());
+        Persona persona= personaRepository.findById(id)
+                .orElseThrow(()->new RuntimeException("Persona no encontrada"));
+        return PersonaResponseDTO.fromEntity(persona);
     }
 
     public PersonaResponseDTO findByNumDocumento(String nDocumento){
-        return PersonaResponseDTO.fromEntity((Persona)personaRepository.findByNumDocumento(nDocumento));
+        return PersonaResponseDTO.fromEntity((Persona)personaRepository.findByNumDocumento(nDocumento).get(0));
     }
 
 }

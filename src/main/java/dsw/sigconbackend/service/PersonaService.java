@@ -27,7 +27,7 @@ public class PersonaService {
     UbigeoRepository ubigeoRepository;
 
     public List<PersonaResponseDTO> listPersona(){
-        return PersonaResponseDTO.fromEntities(personaRepository.findAll());
+        return PersonaResponseDTO.fromEntities(personaRepository.findAllByOrderByIdPersonaDesc());
     }
 
     public PersonaResponseDTO insertPersona(PersonaRequestDTO personaRequest){

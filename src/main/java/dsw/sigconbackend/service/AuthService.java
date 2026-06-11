@@ -71,9 +71,30 @@ public class AuthService {
             modules=moduloRepository.findByIdRol(usuario.getRol().getIdRol());
 
         var token=jwtService.generateToken(usuario, modules);
-
+        var refreshToken=jwtService.generateRefreshToken(usuario);
         return AuthResponseDTO.builder()
                 .token(token)
+                .refreshToken(refreshToken)
+                .build();
+    }
+
+    public AuthResponseDTO refreshToken(String refreshToken) {
+        String email = jwtService.extractUserName(refreshToken);
+        var usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+
+        if (!jwtService.isTokenValid(refreshToken, usuario)) {
+            throw new BadCredentialsException("Token de refresco invalido");
+        }
+
+        List<Modulo> modules = Collections.emptyList();
+        if (usuario.getRol() != null)
+            modules = moduloRepository.findByIdRol(usuario.getRol().getIdRol());
+
+        var token = jwtService.generateToken(usuario, modules);
+        return AuthResponseDTO.builder()
+                .token(token)
+                .refreshToken(refreshToken)
                 .build();
     }
 

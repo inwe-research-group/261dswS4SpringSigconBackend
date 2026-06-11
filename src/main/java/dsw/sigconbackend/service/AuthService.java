@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +26,7 @@ public class AuthService {
     private final PersonaRepository personaRepository;
     private final ModuloRepository moduloRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtUtil jwtService;
+    private final JwtService jwtService;
 
     //metodo para crear una nueva cuenta de acceso
     public AuthResponseDTO register(RegisterRequestDTO request){
